@@ -9,5 +9,9 @@ urlpatterns=[
     path('productedit/<int:id>',views. productedit,name='productedit'),
     path('deleteproduct/<int:id>',views.deleteproduct,name='deleteproduct'),
     path('adminview',views.adminview,name='adminview'),
-    path('deatilesshow/<int:id>',views.deatilesshow,name='deatilesshow')
+    path('deatilesshow/<int:id>',views.deatilesshow,name='deatilesshow'),
+    path('cancel<int:id>/',views.cancel,name='cancel'),
+    path('shipordr',views.shipordr,name='shipordr'),
+    path('ordersts/<int:id>',views.ordersts,name='ordersts'),
+    path('adminviews',views.adminviews,name='adminviews')
 ]

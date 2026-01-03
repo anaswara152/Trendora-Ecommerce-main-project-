@@ -46,7 +46,7 @@
 
         <div class="card-body">
             {% for i in m %}
-            <form action="!#" method="post">
+            <form action="{% url 'shipordr' %}" method="post">
                 {% csrf_token %}
                 <input type="hidden" name="orderid" value="{{ i.id }}">
 
@@ -136,14 +136,14 @@
 
                         <div class="mt-4">
                             {% if i.paymentstatus == "paid" and i.orderstatus == "pending" %}
-                                <a href="!#" class="btn btn-dark w-100">
+                                <a href="{% url 'ordersts' i.id %}" class="btn btn-dark w-100">
                                     <i class="fa-solid fa-gear"></i> Start Processing
                                 </a>
                             {% elif i.orderstatus == "inprocess" %}
                                 <button type="submit" class="btn btn-primary w-100 mb-2">
                                     <i class="fa-solid fa-truck"></i> Ship Order
                                 </button>
-                                <a href="!#" class="btn btn-danger w-100">
+                                <a href="{% url 'cancel' i.id %}" class="btn btn-danger w-100">
                                     <i class="fa-solid fa-ban"></i> Cancel Order
                                 </a>
                             {% else %}
@@ -153,11 +153,6 @@
                     </div>
                 </div>
 
-                <div class="card-footer bg-light text-end mt-3">
-                    <button type="submit" class="btn btn-success px-4">
-                        <i class="fa-solid fa-check"></i> Submit
-                    </button>
-                </div>
             </form>
             {% endfor %}
         </div>
